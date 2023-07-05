@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<h2>Bulk Email Prediction</h2>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="file">Upload dataset:</label><br />
+  <input type="file" id="file" name="file" /><br />
+  <input type="submit" value="Predict" />
+</form>
+
+{% if message %}
+<h2>Prediction Results</h2>
+{{ message | safe }} {% endif %} {% endblock %}
